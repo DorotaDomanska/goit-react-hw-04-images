@@ -3,12 +3,10 @@ import { useEffect, useState } from 'react';
 import css from './Styles.module.css';
 import PropTypes from 'prop-types';
 
-export const ImageGalleryItem = props => {
+export const ImageGalleryItem = ({ images }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [imgUrl, setImgUrl] = useState('');
   const [imgTags, setImgTags] = useState('');
-
-  const { images } = props;
 
   const openModal = evt => {
     const imageId = evt.target.id;

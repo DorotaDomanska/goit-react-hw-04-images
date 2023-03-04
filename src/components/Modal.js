@@ -1,8 +1,6 @@
 import css from './Styles.module.css';
 
-export const Modal = props => {
-  const { imageUrl, imageTags, onCloseModal } = props;
-
+export const Modal = ({ imageUrl, imageTags, onCloseModal }) => {
   const closeModal = () => {
     onCloseModal();
   };

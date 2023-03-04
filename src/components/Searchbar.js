@@ -1,8 +1,6 @@
 import css from './Styles.module.css';
 
-export const Searchbar = props => {
-  const { onInputChange, onFetchImages } = props;
-
+export const Searchbar = ({ onInputChange, onFetchImages }) => {
   const onSubmit = evt => {
     evt.preventDefault();
 
