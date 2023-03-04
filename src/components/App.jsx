@@ -13,18 +13,18 @@ export const App = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [totalHits, setTotalHits] = useState(null);
   const [page, setPage] = useState(1);
-  const [q, setQ] = useState('');
+  const [query, setQuery] = useState('');
 
   const totalPages = Math.ceil(totalHits / 12);
 
   const handleChange = text => {
-    setQ(text);
+    setQuery(text);
   };
 
   const handleRequest = async () => {
     setIsLoading(true);
 
-    const imagesFromApi = await fetchImages({ q });
+    const imagesFromApi = await fetchImages({ q: query });
 
     setImages(imagesFromApi.hits);
     setTotalHits(imagesFromApi.totalHits);
@@ -35,7 +35,7 @@ export const App = () => {
   const handleLoadMore = async () => {
     setIsLoading(true);
 
-    const imagesFromApi = await fetchImages({ q, page });
+    const imagesFromApi = await fetchImages({ q: query, page });
 
     setImages(images.concat(imagesFromApi.hits));
     setIsLoading(false);
@@ -45,7 +45,7 @@ export const App = () => {
 
   useEffect(() => {
     setPage(1);
-  }, [q]);
+  }, [query]);
 
   return (
     <div
